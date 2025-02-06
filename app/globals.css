@@ -1,7 +1,7 @@
-@tailwind base;
+/*@tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -42,6 +42,47 @@ ul{
   border:solid 1px #303030;
   padding:10px;
   border-radius:10px;
+}
+
+.item-wrapper{
+  display:flex;
+  gap:10px;
+  margin:auto;
+  justify-content: space-between;
+  align-items:center;
+  padding-inline:10px;
+  padding-block:5px;
+  width:120px;
+  background-color:#ffffff;
+}
+
+.button-wrapper{
+  display:flex;
+  gap:5px;
+  align-items:center;
+}
+
+.item-wrapper span{
+  font-weight:bold;
+  color:#000;
+}
+
+.button{
+  height:30px;
+  width:30px;
+  border-radius: 50px;
+  border:none;
+  background-color:lightsalmon;
+  cursor:pointer;
+  font-size:20px;
+  color:#ffffff;
+}
+
+.button:disabled{
+  background-color:#bababa;
+  color:#fff;
+  cursor:auto;
+  color:#999999;
 }
 
 a:link{
