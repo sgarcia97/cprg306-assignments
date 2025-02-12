@@ -10,6 +10,7 @@ export default function NewItem(){
 
     const categories = ["Produce","Dairy","Bakery","Meat","Frozen Foods","Canned Goods", "Dry Goods", "Beverages", "Snacks", "Household","Other"]
     const handleSubmit = (e) => {
+        e.preventDefault();
         alert(`Added item: ${name}, quantity: ${quantity}, category: ${category}`)
         setQuantity(1)
         setName('')
@@ -25,8 +26,8 @@ export default function NewItem(){
     }
     return(
         <>
-        <form className="form">
-            <input id="name" type="text" value={name} placeholder="Item name" onChange={e =>setName(e.target.value)}/>
+        <form className="form" onSubmit={handleSubmit}>
+            <input id="name" type="text" value={name} placeholder="Item name" onChange={e =>setName(e.target.value)} required/>
             <div className="form-section-2">
         <div className="item-wrapper">
         <span>{quantity}</span>
@@ -36,7 +37,7 @@ export default function NewItem(){
             </div>
         </div>
         
-        <select id="category" value={category} onChange={e=>setCategory(e.target.value)}>
+        <select id="category" value={category} onChange={e=>setCategory(e.target.value)} required>
             {
                 categories.map((cat,i) => {
                     return <option key={i} value={cat.toLowerCase()}>{cat}</option>
@@ -44,7 +45,7 @@ export default function NewItem(){
             }
         </select>
         </div>
-        <button className="form-button" type="button" onClick={handleSubmit} >+</button>
+        <button className="form-button" type="submit"  >+</button>
         </form>
         </>
 
