@@ -6,6 +6,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --maincolor: lightblue;
+  --blue:#3b82f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +55,7 @@ ul{
   padding-block:5px;
   width:120px;
   background-color:#ffffff;
+  border-radius:5px;
 }
 
 .button-wrapper{
@@ -67,12 +69,54 @@ ul{
   color:#000;
 }
 
+.form{
+  display:grid;
+  width:400px;
+  padding:20px;
+  border-radius:20px;
+  border:solid 1px #303030;
+  margin:auto;
+  gap:10px;
+}
+
+.form-section-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap:10px;
+}
+
+.form .item-wrapper{
+  margin:inherit;
+}
+
+input, select{
+  background-color:#fff;
+  border:none;
+  border-radius:5px;
+  height:40px;
+  outline:none;
+  padding-left:10px;
+}
+
+.form-button{
+  border-radius:5px;
+  background-color:var(--blue);
+  color:#fff;
+  border:none;
+  height:40px;
+}
+
+.form-button:hover, .button:hover{
+  opacity:0.8;
+}
+
 .button{
   height:30px;
   width:30px;
   border-radius: 50px;
   border:none;
-  background-color:lightsalmon;
+  background-color:var(--blue);
   cursor:pointer;
   font-size:20px;
   color:#ffffff;
