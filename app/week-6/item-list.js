@@ -64,7 +64,7 @@ const ItemList = () => {
                         return <Item key={i} name={t.name} quantity={t.quantity} category={t.category}/>
                     })
               
-             return <div key={ii}><h2 >{item}</h2>{test}</div>
+             return <div key={ii}><h2 className="h2" >{item}</h2>{test}</div>
                     
                 
                 
