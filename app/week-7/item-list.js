@@ -14,13 +14,13 @@ const ItemList = () => {
         if(e.target.title === "gcategory"){
             const temp = Items.reduce((categories,item)=>{
                     categories.push(item.category)
-                    const newcategories = categories.toSorted((a,b)=>{ return a > b ? 1 : -1  })
-                    return newcategories
+                    categories.sort((a,b)=>{ return (a > b) ? 1 : -1  })
+                    return categories
             },[])
             const ar = [...new Set(temp)]
             setCatArr(ar)
         }else{
-            const ar = Items.toSorted((a,b)=>{
+            const ar = Items.sort((a,b)=>{
                 if(e.target.title === "name"){
                     return a.name > b.name ? 1 : -1
                 }else if(e.target.title === "category"){
