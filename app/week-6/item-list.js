@@ -5,8 +5,8 @@ import Item from "./item"
 import { useState } from "react"
 
 const ItemList = () => {
-    const [sortBy, setSortBy] = useState("")
-    const [arr, setArr] =  useState(Items)
+    const [sortBy, setSortBy] = useState("name")
+    const [arr, setArr] =  useState(Items.toSorted((a,b)=>{return a.name > b.name ? 1 : -1}))
     const [catArr, setCatArr] = useState([])
 
     const handleClick = (e) => {
@@ -26,11 +26,9 @@ const ItemList = () => {
                 }else if(e.target.title === "category"){
                     return a.category > b.category ? 1 : -1
                 }
-
         })
         setArr(ar)
     }
-        
     }
 
     const categoryItems = (category) => {
@@ -43,13 +41,14 @@ const ItemList = () => {
 
     return (
         <>
-        <div className="filters">
-            <button className={sortBy == "name" ? `button1 active`: `button1`} title="name" onClick={handleClick}>Name</button>
-            <button title="category" className={sortBy == "category" ? `button1 active`: `button1`} onClick={handleClick}>Category</button>
-            <button title="gcategory" className={sortBy == "gcategory" ? `button1 active`: `button1`} onClick={handleClick}>Grouped Category</button>
+            <div className="filters">
+                <button className={sortBy == "name" ? `button1 active`: `button1`} title="name" onClick={handleClick}>Name</button>
+                <button title="category" className={sortBy == "category" ? `button1 active`: `button1`} onClick={handleClick}>Category</button>
+                <button title="gcategory" className={sortBy == "gcategory" ? `button1 active`: `button1`} onClick={handleClick}>Grouped Category</button>
             </div>
         {
-          sortBy != "gcategory" ?
+            sortBy != "gcategory" ?
+          
             arr.map((item,i) => {
                 return <Item key={i} name={item.name} quantity={item.quantity} category={item.category}/>
             })
