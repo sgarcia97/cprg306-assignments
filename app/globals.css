@@ -52,6 +52,17 @@ ul{
   border:solid 1px #303030;
   padding:10px;
   border-radius:10px;
+  user-select:none;
+  transition:all 0.2s ease-in-out;
+}
+
+ul:hover{
+  opacity:0.8;
+}
+
+.grid{
+  display:grid;
+  gap:5px;
 }
 
 .item-wrapper{

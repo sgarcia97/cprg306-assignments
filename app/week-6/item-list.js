@@ -8,7 +8,6 @@ const ItemList = () => {
     const [sortBy, setSortBy] = useState("")
     const [arr, setArr] =  useState(Items)
     const [catArr, setCatArr] = useState([])
-    const [newArr, setNewArr] = useState([])
 
     const handleClick = (e) => {
         setSortBy(e.target.title)
@@ -58,13 +57,13 @@ const ItemList = () => {
         
             catArr.map((item,ii) => {
            
-                const na = categoryItems(item);
-                    let test;
-                    test = na.map((t,i)=>{
+                const ca = categoryItems(item);
+                    let categoryItem;
+                    categoryItem = ca.map((t,i)=>{
                         return <Item key={i} name={t.name} quantity={t.quantity} category={t.category}/>
                     })
               
-             return <div key={ii}><h2 className="h2" >{item}</h2>{test}</div>
+             return <div key={ii} className="grid"><h2 className="h2" >{item}</h2>{categoryItem}</div>
                     
                 
                 
