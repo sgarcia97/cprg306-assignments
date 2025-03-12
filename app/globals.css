@@ -163,6 +163,15 @@ input, select{
   color:#999999;
 }
 
+.card{
+  width:400px;
+  background-color:#303030;
+  border-radius:10px;
+  padding:40px;
+  margin:auto;
+
+}
+
 .active{
   outline: solid var(--blue) 3px;
   outline-offset: 2px;

@@ -7,11 +7,11 @@ import { useState } from "react"
 
 export default function Page(){
     const [items, setItems] = useState(itemsData)
-
+    
     const handleAddItem = (obj) => { 
-        items.push(obj)
-        console.log(obj)
-        console.log(items)
+        const newitems = [...items]
+        newitems.push(obj)
+        setItems(newitems)
     }
 
     return(
