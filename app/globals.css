@@ -52,8 +52,8 @@ ul{
   border:solid 1px #303030;
   padding:10px;
   border-radius:10px;
-  user-select:none;
   transition:all 0.2s ease-in-out;
+  cursor:pointer;
 }
 
 ul:hover{
@@ -170,6 +170,24 @@ input, select{
   padding:40px;
   margin:auto;
 
+}
+
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+  align-items: start;
+}
+
+.floatop{
+  position: sticky;
+  top:0px;
+  padding-top:10px;
+}
+
+.main-sub{
+  display:grid;
+  gap:5px;
 }
 
 .active{
