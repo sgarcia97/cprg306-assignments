@@ -143,6 +143,13 @@ input, select{
   color:#ffffff;
 }
 
+.header{
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+  align-items:center;
+}
+
 .filters{
   display:flex;
   gap:20px;
@@ -170,6 +177,15 @@ input, select{
   padding:40px;
   margin:auto;
 
+}
+
+.auth{
+  width:500px;
+  margin:auto;
+  padding:30px;
+  background-color:#303030;
+  border-radius:20px;
+  margin-top:50px;
 }
 
 .split{
