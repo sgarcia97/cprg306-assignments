@@ -12,24 +12,25 @@ import Link from "next/link";
 
 export default function Page(){
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
-    const [items, setItems] = useState(itemsData)
+    const [items, setItems] = useState([])
     const [selectedItemname, setSelectedItemname] = useState("bananas")
 
    
 
     useEffect(()=>{
         const loadItems = async () => {
-            const it = getItems(user.uid)
+            const it = await getItems(user.uid)
             setItems(it)
         }
-        loadItems()
-    },[user.uid])
 
-    const handleAddItem = (obj) => { 
-        addItem(user.uid, obj)
-       // const newitems = [...items]
-       // newitems.push(obj)
-        setItems(items)
+        user && loadItems()
+    },[user])
+
+    const handleAddItem = async (obj) => { 
+        const add = await addItem(user.uid, obj)
+        const newitems = [...items]
+        newitems.push(obj)
+        setItems(newitems)
     }
 
     const logOut = async () => {
@@ -49,7 +50,7 @@ export default function Page(){
         .trim();
         setSelectedItemname(result)
     }
-
+  
     return(
         <>
         {
@@ -57,16 +58,18 @@ export default function Page(){
         (
         <main className="main split">
             <div className="main-sub">
-            <h2 className="text-3xl font-medium">Shopping List <button onClick={logOut} className="button1" style={{fontSize:14}}>Logout</button></h2>
+            <h2 className="text-3xl font-medium">Shopping List <div style={{fontSize:'1rem'}}>{user.uid}</div><button onClick={logOut} className="button1" style={{fontSize:14}}>Logout</button></h2>
             <NewItem onAddItem={handleAddItem}/>
             <p></p>
+            { items.length > 0 &&
             <ItemList items={items} onItemSelect={()=>handleItemSelect}/>
+                }
             </div>
             <MealIdeas ingredient={selectedItemname}/>
         </main>
         )
         : 
-        redirect('/week-9')
+        redirect('/week-10')
         (
             <div style={{textAlign:"center", padding:10}}>You are not authorized to view this page! <Link href="http://localhost:3001">Go to home page</Link></div>
         )
